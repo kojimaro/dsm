@@ -52,8 +52,8 @@ const Menu = (props) => {
               <Typography variant="title" color="inherit" className={classes.flex}>
                 D.S.M
               </Typography>
-              <Button color="inherit" target="_blunk" href="https://github.com/">
-                使い方はこちら
+              <Button color="inherit" target="_blunk" href="https://github.com/kojimaro/dsm">
+                使い方などはGitHubへ
               </Button>
             </Toolbar>
           </AppBar>
