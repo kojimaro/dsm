@@ -11,6 +11,7 @@ import Divider from '@material-ui/core/Divider';
 import DisplayFileCard from '../molecules/display_file_card.js';
 import GasPliceItem from '../atoms/gas_plice_item.js';
 import DisclaimerItem from '../atoms/disclaimer_item.js';
+import LoadProgressLinear from '../atoms/load_progress_linear.js';
 
 const drawerWidth = 340;
 
@@ -44,7 +45,7 @@ const styles = theme => ({
 });
 
 const Menu = (props) => {
-    const {classes, readDirectory, uploadState, uploadedFiles, gasPlice} = props;
+    const {classes, readDirectory, uploadState, uploadedFiles, gasPlice, isLoading} = props;
     return(
         <div className={classes.root}>
           <AppBar position="absolute" className={classes.appBar}>
@@ -73,7 +74,11 @@ const Menu = (props) => {
          </Drawer>
          <main className={classes.content}>
             <div className={classes.toolbar} />
-            <DisplayFileCard uploadedFiles={uploadedFiles}/>
+            <LoadProgressLinear isLoading={isLoading} />
+            <DisplayFileCard
+              uploadedFiles={uploadedFiles}
+              isLoading={isLoading}
+            />
          </main>
         </div>
     );

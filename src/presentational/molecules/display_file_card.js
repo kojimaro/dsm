@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
 const displayFileCard = props => {
-    const { uploadedFiles } = props;
+    const { uploadedFiles, isLoading } = props;
 
     const compare = (a, b) => {
         const idA = a.id;
@@ -46,7 +46,7 @@ const displayFileCard = props => {
     });
 
     return (
-        <Grid container spacing={24}>
+        <Grid container spacing={24} style={{display: isLoading ? 'none':'block'}}>
             {card}
         </Grid>
     );

@@ -22,7 +22,8 @@ class App extends Component {
               formDisabled: true
           },
           uploadedFiles: [],
-          displayDialog: false
+          displayDialog: false,
+          isLoading: true
         }
     }
 
@@ -95,6 +96,10 @@ class App extends Component {
     }
 
     displayFiles = owner => {
+        this.setState({
+            isLoading: true
+        });
+
         this.state.fileHashStorageInstance.getFileIds(owner).then(
             (ids) => {
                 for (let id of ids) {
@@ -106,7 +111,11 @@ class App extends Component {
                     });
                 }
             }
-        );
+        ).then(() => {
+            this.setState({
+                isLoading: false
+            });
+        });
     }
 
     readDirectory = event => {
@@ -192,6 +201,7 @@ class App extends Component {
             readDirectory={this.readDirectory} uploadState={this.state.uploadState}
             uploadedFiles={this.state.uploadedFiles}
             gasPlice={this.state.gasPlice}
+            isLoading={this.state.isLoading}
           />
           <ErrorDialog displayDialog={this.state.displayDialog} />
           </React.Fragment>
