@@ -1,29 +1,12 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import FolderIcon from '@material-ui/icons/Folder';
 import Grid from '@material-ui/core/Grid';
 
-const styles = {
-  card: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    marginBottom: 16,
-    fontSize: 14,
-  }
-}
-
 const displayFileCard = props => {
-    const {classes, uploadedFiles} = props;
+    const { uploadedFiles } = props;
 
     const compare = (a, b) => {
         const idA = a.id;
@@ -44,12 +27,9 @@ const displayFileCard = props => {
     uploadedFiles.map((file, index) => {
         card.push(
             <Grid item key={index} sm={12} md={12} lg={12}>
-              <Card className={classes.card}>
+              <Card>
                 <CardContent>
-                  <Typography className={classes.title} color="textSecondary">
-                    <FolderIcon /> Directory
-                  </Typography>
-                  <Typography variant="headline" component="h2">
+                  <Typography variant="headline">
                     {file.path}
                   </Typography>
                 </CardContent>
@@ -72,5 +52,5 @@ const displayFileCard = props => {
     );
 }
 
-export default withStyles(styles)(displayFileCard);
+export default displayFileCard;
 
