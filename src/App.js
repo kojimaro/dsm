@@ -19,6 +19,7 @@ class App extends Component {
           uploadState: {
               uploading: false,
               success: false,
+              failed: false,
               formDisabled: true
           },
           uploadedFiles: [],
@@ -129,6 +130,7 @@ class App extends Component {
             uploadState: {
                 uploading: true,
                 success: false,
+                failed: false,
                 formDisabled: true
             }
         });
@@ -161,6 +163,7 @@ class App extends Component {
                     uploadState: {
                         uploading: false,
                         success: false,
+                        failed: true,
                         formDisabled: false
                     }
                 });
@@ -187,6 +190,7 @@ class App extends Component {
                 uploadState: {
                     uploading: false,
                     success: false,
+                    failed: false,
                     formDisabled: false
                 }
             });

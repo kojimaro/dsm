@@ -1,6 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
+import Typography from '@material-ui/core/Typography';
 import UploadProgressBtn from '../atoms/upload_progress_btn.js';
 
 const styles = theme => ({
@@ -12,6 +13,7 @@ const styles = theme => ({
 const UploadDirectoryItem = (props) => {
     const {classes, readDirectory, uploadState} = props;
     return(
+        <React.Fragment>
         <ListItem>
             <input
                 className={classes.input}
@@ -26,6 +28,12 @@ const UploadDirectoryItem = (props) => {
                 <UploadProgressBtn uploadState={uploadState} />
             </label>
         </ListItem>
+        <ListItem style={{display: uploadState.failed ? 'block':'none'}}>
+          <Typography variant="subheading" color="secondary">
+            アップロードに失敗しました。
+          </Typography>
+        </ListItem>
+        </React.Fragment>
     );
 }
 
