@@ -96,12 +96,12 @@ class App extends Component {
         return this.state.fileHashStorageInstance.files(id);
     }
 
-    displayFiles = owner => {
+    displayFiles = async(owner) => {
         this.setState({
             isLoading: true
         });
 
-        this.state.fileHashStorageInstance.getFileIds(owner).then(
+        await this.state.fileHashStorageInstance.getFileIds(owner).then(
             (ids) => {
                 for (let id of ids) {
                     this.getFileDetails(id).then((file) => {
