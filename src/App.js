@@ -167,7 +167,6 @@ class App extends Component {
                         formDisabled: false
                     }
                 });
-                console.log(error);
             }
         });
     }
