@@ -20,6 +20,7 @@ const UploadDirectoryItem = (props) => {
                 type="file"
                 onChange={readDirectory}
                 disabled={uploadState.formDisabled}
+                onClick={(event)=>{event.target.value=null}}
             />
             <label htmlFor="outlined-button-directory">
                 <UploadProgressBtn uploadState={uploadState} />
